@@ -1,0 +1,25 @@
+#sidemenu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+  height: 100vh;
+  width: 400px;
+  background-color: #3f0e40;
+  color: #fff;
+  padding: 1rem;
+  .header {
+    display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		font-size: 18px;
+    h1 {
+      padding: 0 0.25rem;
+    }
+    i {
+
+    }
+  }
+}
