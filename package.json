@@ -16,8 +16,8 @@
     "concurrently": "^4.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "serve": "concurrently \"node ./server.js\" \"react-scripts start\"",
+    "serve": "react-scripts start",
+    "start": "concurrently \"node ./server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
