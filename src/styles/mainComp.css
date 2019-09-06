@@ -106,6 +106,7 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+  overflow: scroll;
 }
 
 #mainPage .mainPanel .posts i,
