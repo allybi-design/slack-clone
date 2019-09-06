@@ -1,21 +1,21 @@
 import React, { Component } from "react";
-// import MainComp from "./components/MainWindow.jsx";
-// import SideMenu from "./components/SideMenu";
-import UsernameForm from "./components/UsernameForm.jsx";
-import ChatScreen from "./components/ChatScreen.jsx";
+import SignIn from "./components/SignInComp.jsx";
+import MainComp from "./components/MainComp.jsx";
+
+import "./styles/reset.css"
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUsername: "",
-      currentScreen: "WhatIsYourUsernameScreen"
+      currentUsername: "alison",
+      currentScreen: "signInScreen"
     };
     this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this);
   }
 
   onUsernameSubmitted(username) {
-    fetch("http://localhost:8000/users", {
+    fetch("http://localhost:3001/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -32,17 +32,11 @@ export default class App extends Component {
   }
 
   render() {
-   
-        if (this.state.currentScreen === 'WhatIsYourUsernameScreen') {
-          return <UsernameForm onSubmit={this.onUsernameSubmitted} />
+        if (this.state.currentScreen === 'signInScreen') {
+          return <SignIn onSubmit={this.onUsernameSubmitted} />
         }
         if (this.state.currentScreen === 'ChatScreen') {
-          return <ChatScreen currentUsername={this.state.currentUsername} />
+          return <MainComp currentUsername={this.state.currentUsername} />
         }
-        
-
   }
 }
-
-{/* <SideMenu />
-<MainComp /> */}

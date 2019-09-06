@@ -1,0 +1,39 @@
+#signIn {
+  width: 80vw;
+  margin: 5rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#signIn .signInElement {
+  padding: 1rem;
+}
+
+#signIn .signInElement input {
+  font-size: 18px;
+  padding: .125rem .5rem;
+  border: 1px solid #000;
+}
+
+#signIn .signInElement button {
+  font-size: 18px;
+  padding: .125rem .5rem;
+  border: 1px solid #000;
+  background-color: #0f0;
+}
+/*# sourceMappingURL=signIn.css.map */

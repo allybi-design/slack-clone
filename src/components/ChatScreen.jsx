@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Chatkit from "@pusher/chatkit-client";
-import MessageList from "./components/MessageList";
-import SendMessageForm from "./components/SendMessageForm";
-import TypingIndicator from "./components/TypingIndicator";
-import WhosOnlineList from "./components/WhosOnlineList";
+
+//components
+import MessageList from "./MessageList.jsx";
+import SendMessageForm from "./SendMessageForm.jsx";
+import TypingIndicator from "./TypingIndicator.jsx";
+import WhosOnlineList from "./WhosOnlineList.jsx";
 
 class ChatScreen extends Component {
   constructor(props) {
@@ -12,7 +14,12 @@ class ChatScreen extends Component {
       currentUser: {},
       currentRoom: {},
       messages: [],
-      usersWhoAreTyping: []
+      usersWhoAreTyping: [],
+      roomIDs: [
+        { name: "general", key: "6d0e3431-2b2b-41ba-9756-37d86d99581c" },
+        { name: "development", key: "76176a7c-efbf-4d14-842c-40f10f9e69d2" },
+        { name: "random", key: "5ca95e51-3d94-4fff-9d03-7ed6894491c6" }
+      ]
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.sendTypingEvent = this.sendTypingEvent.bind(this);
@@ -33,7 +40,7 @@ class ChatScreen extends Component {
 
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({
-      instanceLocator: "YOUR_INSTANCE_LOCATOR",
+      instanceLocator: "Yv1:us1:8b02d032-1a3e-49ca-b6b2-a11cfa99f3f0",
       userId: this.props.currentUsername,
       tokenProvider: new Chatkit.TokenProvider({
         url: "http://localhost:3001/authenticate"
@@ -45,7 +52,7 @@ class ChatScreen extends Component {
       .then(currentUser => {
         this.setState({ currentUser });
         return currentUser.subscribeToRoom({
-          roomId: "YOUR_ROOM_ID",
+          roomId: "6d0e3431-2b2b-41ba-9756-37d86d99581c",
           messageLimit: 100,
           hooks: {
             onMessage: message => {
@@ -128,3 +135,69 @@ class ChatScreen extends Component {
 }
 
 export default ChatScreen;
+
+// {
+  /* <div id="mainWindow">
+  <nav className="navbar">
+    <div className="navLogoRoom">
+      <i className="fab fa-slack-hash"></i>
+      <b>general</b>
+    </div>
+    <div className="navsearchBar">
+      <i className="fas fa-info-circle"></i>
+      <i className="fas fa-cog"></i>
+      <input type="text" placeholder="&#xf002; Search" />
+      <i className="fas fa-at"></i>
+      <i className="far fa-star"></i>
+      <i className="fas fa-ellipsis-v"></i>
+    </div>
+  </nav>
+
+  <article className="dailyPosts">
+    <div className="posts">
+      <section className="post">
+        <div className="avatar">
+          <i className="fas fa-user fa-2x"></i>
+        </div>
+        <div className="userTime">
+          <b className="userName">Monica </b>
+          <small>3.15pm</small>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde minima
+            repellendus cum, libero iusto nobis sed animi eaque rerum impedit.
+          </p>
+        </div>
+      </section>
+
+      <section className="post">
+        <div className="avatar ">
+          <i className="fas fa-user fa-2x"></i>
+        </div>
+        <div className="userTime">
+          <b className="userName">Alison </b>
+          <small>3.20pm</small>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde minima
+            repellendus cum,{" "}
+          </p>
+        </div>
+      </section>
+
+      <section className="post">
+        <div className="avatar">
+          <i className="fas fa-user fa-2x"></i>
+        </div>
+        <div className="userTime">
+          <b className="userName">Stefan</b>
+          <small>3.25pm</small>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+      </section>
+    </div>
+  </article>
+
+  <div className="inputBar">
+    <input type="text" placeholder="type a message..." />
+  </div>
+</div>; */
+}
