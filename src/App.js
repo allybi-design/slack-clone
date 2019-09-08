@@ -18,7 +18,8 @@ export default class App extends Component {
     fetch("https://slack-clone-server-allybi.herokuapp.com/users", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify({ username })
     })
