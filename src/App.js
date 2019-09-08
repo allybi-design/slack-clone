@@ -8,14 +8,14 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUsername: "alison",
+      currentUsername: "",
       currentScreen: "signInScreen"
     };
     this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this);
   }
 
   onUsernameSubmitted(username) {
-    fetch("http://localhost:3001/users", {
+    fetch("https://slack-clone-server-allybi.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

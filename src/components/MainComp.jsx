@@ -45,7 +45,7 @@ export default class mainWindow extends Component {
       instanceLocator: "Yv1:us1:8b02d032-1a3e-49ca-b6b2-a11cfa99f3f0",
       userId: this.props.currentUsername,
       tokenProvider: new Chatkit.TokenProvider({
-        url: "http://localhost:3001/authenticate"
+        url: "https://slack-clone-server-allybi.herokuapp.com/authenticate"
       })
     });
 
